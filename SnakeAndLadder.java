@@ -1,47 +1,42 @@
-public class NoPlayladderOrSnake {
+public class PlayerReachesWinningPosition {
 	
 	public static void main(String[] args) {
+	System.out.println("Wellcome to snake ladder game: ");
 
+	int position = 0;
+	int TempPosition;
+	int minimum = 1;
+	int maximum = 6;
+	int countDice = 0;
 
-		
-		System.out.println("Wellcome to snake ladder game: ");
-
-		int position = 0;
-		int minimum = 1;
-		int maximum = 6;
-
+	while(position < 100)
+	{
 		int randomValue = (int) Math.floor(Math.random() * (maximum - minimum + 1) + minimum);  //Math.random()*(max-min+1)+min
+//		System.out.println("randomvalue" + randomValue);
+
 		int randomOption = (int) (Math.random() * 10) % 3;
+//		System.out.println("randomoption" + randomOption);
 
-		//System.out.println("Random number between 1 to 6 = " + randomValue);
-		//System.out.println(randomOption);
+		if(randomOption == 0 && position == 0)
+			position = 0;
 
-		if (randomOption == 0)
+		else if(randomOption == 1 && position < 100)
 		{
-			System.out.println("No Play that's why player stay in same position which is " + position );
-
-		}
-		else if (randomOption == 1)
-		{
+			int storeValue = position;
 			position += randomValue;
-			System.out.println("Ladder that's why player move ahead and new position is " + position);
-
+			if(position > 100)
+				position = storeValue;
 		}
-		else if (randomOption == 2)
+		else if(randomOption ==2)
 		{
-			if(position == 0)
-			{
+			position -= randomValue;
+			if(position < 0 )
 				position = 0;
-			}
-			else
-			{
-				position -= randomValue;
-			}
-			System.out.println("Snake that's why player move behind and new position is " + position);
 		}
-
+		countDice++;
+		System.out.println("position" + position);
 	}
-
-
+	System.out.println("Number of times dice was played to win the game " + countDice);
+}
 
 }

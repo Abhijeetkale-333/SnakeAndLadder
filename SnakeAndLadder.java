@@ -1,13 +1,11 @@
-public class PlayerReachesWinningPosition {
-	
+public class ExactWinningPosition {
 	public static void main(String[] args) {
-	System.out.println("Wellcome to snake ladder game: ");
-
+	 	System.out.println("Welcome to snake ladder game: ");
+	
 	int position = 0;
 	int TempPosition;
 	int minimum = 1;
 	int maximum = 6;
-	int countDice = 0;
 
 	while(position < 100)
 	{
@@ -33,10 +31,8 @@ public class PlayerReachesWinningPosition {
 			if(position < 0 )
 				position = 0;
 		}
-		countDice++;
-		System.out.println("position" + position);
+	  System.out.println("position" + position);
+	
 	}
-	System.out.println("Number of times dice was played to win the game " + countDice);
-}
-
+	}
 }
